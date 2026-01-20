@@ -1,0 +1,8 @@
+# Dependencies (Yeh upload nahi honi chahiye)
+node_modules/
+
+# Environment variables (Security ke liye)
+.env
+
+# Mac system files (Agar Mac use karte ho to)
+.DS_Store

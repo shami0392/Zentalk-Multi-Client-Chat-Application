@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zentalk</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="auth-container" id="signup-screen">
+        <div class="auth-box">
+            <h2 style="color: #00a884;">Zentalk</h2>
+            <h3>Create Account</h3>
+            <input type="text" id="signup-username" placeholder="Choose Username">
+            <input type="password" id="signup-password" placeholder="Choose Password">
+            <button onclick="handleSignup()">Sign Up</button>
+            <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+        </div>
+    </div>
+
+    <div class="auth-container" id="login-screen" style="display: none;">
+        <div class="auth-box">
+            <h2 style="color: #00a884;">WhatsApp Clone</h2>
+            <h3>Login</h3>
+            <input type="text" id="login-username" placeholder="Username">
+            <input type="password" id="login-password" placeholder="Password">
+            <button onclick="handleLogin()">Login</button>
+            <p>New user? <a href="#" onclick="showSignup()">Create Account</a></p>
+        </div>
+    </div>
+
+    <div class="app-container" id="chat-screen" style="display: none;">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="avatar" id="my-avatar"></div>
+                <div class="header-icons">
+                    <i class="fas fa-circle-notch" title="Status"></i>
+                    <i class="fas fa-comment-alt" title="New Chat"></i>
+                    <i class="fas fa-ellipsis-v" title="Menu"></i>
+                </div>
+            </div>
+            <div class="search-bar">
+                <input type="text" id="user-search-input" placeholder="Search or start new chat" onkeyup="filterUsers()">
+            </div>
+            <div class="chat-list" id="user-list">
+                </div>
+        </div>
+
+        <div class="chat-area">
+            <div class="chat-header">
+                <div class="avatar" id="current-chat-avatar"></div>
+                <div class="chat-info">
+                    <h4 id="chat-name">Select a contact</h4>
+                    <p id="chat-status">click to start chatting</p>
+                </div>
+                <div class="header-icons" style="position: relative;">
+                    <i class="fas fa-search" onclick="toggleChatSearch()" title="Search in Chat"></i>
+                    <input type="text" id="chat-search-input" class="chat-search-box" placeholder="Find..." onkeyup="searchMessages()" style="display: none;">
+                    
+                    <i class="fas fa-paperclip" onclick="document.getElementById('image-input').click()" title="Attach File"></i>
+                    
+                    <i class="fas fa-ellipsis-v" onclick="toggleMenu()" title="Options"></i>
+                    
+                    <div id="dropdown-menu" class="dropdown-menu">
+                        <div onclick="clearChat()">🗑️ Clear Chat</div>
+                        <div onclick="alert('Feature coming soon!')">🚫 Block User</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="messages-container" id="messages">
+                </div>
+
+            <div class="chat-input" style="position: relative;">
+                <i class="far fa-smile" onclick="toggleEmojiPicker()"></i>
+                
+                <div id="emoji-picker" class="emoji-picker">
+                    <span onclick="addEmoji('😀')">😀</span>
+                    <span onclick="addEmoji('😂')">😂</span>
+                    <span onclick="addEmoji('😍')">😍</span>
+                    <span onclick="addEmoji('😭')">😭</span>
+                    <span onclick="addEmoji('😎')">😎</span>
+                    <span onclick="addEmoji('👍')">👍</span>
+                    <span onclick="addEmoji('❤️')">❤️</span>
+                    <span onclick="addEmoji('🔥')">🔥</span>
+                </div>
+
+                <i class="fas fa-plus" onclick="document.getElementById('image-input').click()"></i>
+                
+                <input type="text" id="message-input" placeholder="Type a message">
+                <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+                
+                <input type="file" id="image-input" accept="image/*" hidden>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
