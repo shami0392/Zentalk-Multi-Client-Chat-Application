@@ -1,8 +1,7 @@
-# Nexus Hub | Real-time Chat Application
+#  Zentalk | Multi-Client Chat Application
 
 [![Node.js](https://img.shields.io/badge/Node.js-43853D?style=flat&logo=node.js&logoColor=white)](https://nodejs.org/)
 [![Socket.io](https://img.shields.io/badge/Socket.io-010101?style=flat&logo=socket.io&logoColor=white)](https://socket.io/)
-[![Express.js](https://img.shields.io/badge/Express.js-000000?style=flat&logo=express&logoColor=white)](https://expressjs.com/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 A robust, real-time multi-client chat application built with **Node.js** and **Socket.io**. This application supports **Broadcast (Public)** and **Unicast (Private)** messaging modes, image sharing, and features a modern, responsive UI inspired by WhatsApp Web.
